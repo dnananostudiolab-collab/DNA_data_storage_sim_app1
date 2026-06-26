@@ -1284,7 +1284,12 @@ def render_panel_1_upload() -> None:
         left, right = st.columns(2, gap="large")
         with left:
             st.markdown("#### 📁 Input")
-            uploaded = st.file_uploader("", type=None, key="upload_input_file")
+            uploaded = st.file_uploader(
+    "Input file",
+    type=None,
+    key="upload_input_file",
+    label_visibility="collapsed",
+)
             if uploaded is not None:
                 # Streamlit re-runs the script after every button click. The uploaded
                 # file object is still present on those re-runs, so we must not treat
