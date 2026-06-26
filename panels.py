@@ -1348,7 +1348,7 @@ def render_panel_2_compression() -> None:
 
         controls, selected_output = st.columns([0.9, 1.1], gap="large")
         with controls:
-            st.markdown("#### 🗂️ Encoding parameters")
+            st.markdown("#### 🗂️ Configuration Setup")
             storage_mode = st.radio(FIELDS["storage_method"], [DATA_SOURCES["no_compression"], DATA_SOURCES["compression"]], horizontal=True, key="storage_mode")
 
             if st.button(BUTTONS["run_data_encoding"], key="run_compression", type="primary", use_container_width=True):
@@ -1379,7 +1379,7 @@ def render_panel_2_compression() -> None:
             candidates: List[CompressionCandidate] = st.session_state.get("compression_candidates", [])
 
         with selected_output:
-            st.markdown("#### 🗜️ Selected compressed output")
+            st.markdown("#### 🗜️ Estimated  Compression Output")
             stored = st.session_state.get("stored_bytes")
             if not stored:
                 st.info(MESSAGES["choose_storage"])
@@ -1409,7 +1409,7 @@ def render_panel_2_compression() -> None:
             current = st.session_state.get("selected_candidate")
             _render_candidate_list(candidates, current)
 
-        st.markdown("#### 🖼️ Before / after compression")
+        st.markdown("#### 🖼️ Compression Metrics")
         before, after = st.columns(2, gap="large")
         with before:
             st.markdown("##### Before compression")
@@ -1468,7 +1468,7 @@ def render_panel_3_encoding() -> None:
             if previous not in MAPPING_OPTIONS:
                 previous = "Simple Mapping"
             mapping = st.selectbox(
-                "DNA design",
+                "Rule Selection",
                 MAPPING_OPTIONS,
                 index=MAPPING_OPTIONS.index(previous),
                 format_func=_display_mapping,
