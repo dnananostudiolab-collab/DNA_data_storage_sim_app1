@@ -192,7 +192,7 @@ FIELDS = {
     "input_preview": "Input preview",
     "input_binary": "Input binary",
     "binary_bitstream": "Binary bitstream",
-    "storage_method": "Storage method",
+    "storage_method": "",
     "image_data_source": "Image data source",
     "binary_threshold": "Binary threshold",
     "pixel_format": "Pixel format",
